@@ -5,8 +5,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float movementSpeed = 5.0f;
-	public float clockwise = 1000.0f;
-	public float counterClockwise = -5.0f;
+	public float clockwise = 50.0f;
+	public float counterClockwise = -50.0f;
 
 	void Start () {
 	}

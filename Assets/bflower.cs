@@ -3,6 +3,7 @@ using System.Collections;
 
 public class bflower : MonoBehaviour {
     public beeScore bee;
+	public beeScore bee1;
     public int value;
     public bool dead;
     public flowerSpawn df;
@@ -10,6 +11,7 @@ public class bflower : MonoBehaviour {
 	void Start () {
         value = 20;
         bee = GameObject.FindGameObjectWithTag("Bee").GetComponent<beeScore>();
+		bee1 = GameObject.FindGameObjectWithTag("Bee1").GetComponent<beeScore>();
         df = GameObject.FindGameObjectWithTag("Spawner").GetComponent<flowerSpawn>();
         dead = false;
     }
@@ -28,18 +30,25 @@ public class bflower : MonoBehaviour {
 	}
     void OnTriggerStay(Collider other)
     {
-        if (other == GameObject.FindGameObjectWithTag("Bee").GetComponent<SphereCollider>()) ;
-        {
-            if (bee.value < 50)
-            {
-                if (!bee.isFull)
-                {
-                    value--;
-                    bee.value++;
-                }
-            }
-
-        }
+		if (other == GameObject.FindGameObjectWithTag("Bee").GetComponent<SphereCollider>()) 
+		{
+			if (bee.value < 50) {
+				if (!bee.isFull) {
+					value--;
+					bee.value++;
+				}
+			}
+		}
+			if (other == GameObject.FindGameObjectWithTag("Bee1").GetComponent<SphereCollider>()) 
+		{
+			if (bee1.value < 50) {
+				if (!bee1.isFull) {
+					value--;
+					bee1.value++;
+				}
+			}
+		}
+        
 
     }
 }

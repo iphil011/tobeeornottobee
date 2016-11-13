@@ -13,22 +13,25 @@ public class beeScore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (value == 50)
+        if (value >= 50)
         {
+            value = 50;
             isFull = true;
         }
         else
         {
             isFull = false;
         }
-        if (value == 0)
-        {   
+        if (value <= 0)
+        {
+            value = 0;
             isEmpty = true;
         }
-        else {
+        else
+        {
             isEmpty = false;
         }
 
-	
-	}
+
+    }
 }

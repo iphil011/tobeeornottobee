@@ -18,7 +18,7 @@ public class HiveBehaviour : MonoBehaviour {
 	
 	}
     void OnTriggerStay(Collider other){
-        if (other == GameObject.FindGameObjectWithTag("Bee").GetComponent<SphereCollider>()) ;
+        if (other == GameObject.FindGameObjectWithTag("Bee").GetComponent<SphereCollider>()) 
             {
             if (bee.value > 0)
             {

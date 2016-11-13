@@ -66,8 +66,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Hive1Behaviour.cs" />
     <Compile Include="Assets\HiveBehaviour.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\PlayerController2.cs" />
     <Compile Include="Assets\beeScore.cs" />
     <Compile Include="Assets\bflower.cs" />
     <Compile Include="Assets\flowerSpawn.cs" />

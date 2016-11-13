@@ -32,7 +32,7 @@ public class bflower : MonoBehaviour {
     {
 		if (other == GameObject.FindGameObjectWithTag("Bee").GetComponent<SphereCollider>()) 
 		{
-			if (bee.value < 50) {
+			if (bee.value <= 50) {
 				if (!bee.isFull) {
 					value--;
 					bee.value++;
@@ -41,7 +41,7 @@ public class bflower : MonoBehaviour {
 		}
 			if (other == GameObject.FindGameObjectWithTag("Bee1").GetComponent<SphereCollider>()) 
 		{
-			if (bee1.value < 50) {
+			if (bee1.value <= 50) {
 				if (!bee1.isFull) {
 					value--;
 					bee1.value++;

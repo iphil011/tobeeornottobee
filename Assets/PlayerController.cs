@@ -1,40 +1,33 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
-	public float speed;
-	public float smooth = 1f; 
-	public float rotateSpeed = 130; 
-	private Rigidbody rb;
-	private Vector3 targetAngles; 
+	public float movementSpeed = 5.0f;
+	public float clockwise = 1000.0f;
+	public float counterClockwise = -5.0f;
 
-	void Start ()
-	{
-		rb = GetComponent<Rigidbody>();
+	void Start () {
 	}
 
-	void FixedUpdate ()
-	{
-		float rotateHorizontal = Input.GetAxis ("Horizontal2");
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
-		float moveVertical2 = Input.GetAxis ("Vertical2");
-
-		Vector3 movement = new Vector3 (moveHorizontal, moveVertical, moveVertical2);
-
-		//ROTATE 
-
-		/*if (Input.GetButtonDown("a"))
-			transform.Rotate (Vector3.right * rotateSpeed * Time.deltaTime);
-		
-		else if (Input.GetButtonDown ("d"))
-			transform.Rotate (-Vector3.right * rotateSpeed * Time.deltaTime);*/
-
-		transform.Rotate (rotateHorizontal* Vector3.up * rotateSpeed * Time.deltaTime);
-
-
-		rb.AddForce (movement * speed);
+	void Update () {
+		if (Input.GetKey (KeyCode.W)) {
+			transform.position += transform.forward * Time.deltaTime * movementSpeed;
+		} else if (Input.GetKey (KeyCode.S)) {
+			transform.position -= transform.forward * Time.deltaTime * movementSpeed;
+		} else if (Input.GetKey (KeyCode.A)) {
+			transform.position -= transform.right * Time.deltaTime * movementSpeed;
+		} else if (Input.GetKey (KeyCode.D)) {
+			transform.position += transform.right * Time.deltaTime * movementSpeed;
+		} else if (Input.GetKey (KeyCode.UpArrow)) {
+			transform.position += transform.up * Time.deltaTime * movementSpeed;
+		} else if (Input.GetKey (KeyCode.DownArrow)) {
+			transform.position -= transform.up * Time.deltaTime * movementSpeed;
+		}else if(Input.GetKey(KeyCode.RightArrow)) {
+			transform.Rotate(0, Time.deltaTime * clockwise, 0);
+		}else if(Input.GetKey(KeyCode.LeftArrow)) {
+			transform.Rotate(0, Time.deltaTime * counterClockwise, 0);
+		}
 	}
 }
